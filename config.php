@@ -9,7 +9,8 @@ return [
     'database' => [
         'dsn' => sprintf(
             'influxdb://%s:%s/%s',
-            '192.168.0.10',
+            '127.0.0.1',
+            //'192.168.0.10',
             '8086',
             'grafana'
         ),

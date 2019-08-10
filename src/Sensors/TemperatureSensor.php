@@ -18,16 +18,9 @@ class TemperatureSensor implements SensorInterface
 
     public function getValue(): float
     {
-        $fp = fopen($this->filename, 'r');
-        fseek($fp, -1, SEEK_END);
-        $pos = ftell($fp);
-        $temp = "";
+        $contents = file_get_contents($this->filename);
+        preg_match('/t=\d+/', $contents, $temp);
 
-        while ((($char = fgetc($fp)) != "=") && ($pos > 0)) {
-            $temp = $char . $temp;
-            fseek($fp, $pos--);
-        }
-
-        return ((int) $temp) / 1000 ;
+        return ((int) str_replace('t=', '', $temp[0])) / 1000;
     }
 }
