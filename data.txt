@@ -1,0 +1,2 @@
+c0 01 4b 46 7f ff 0c 10 2e : crc=2e YES
+c0 01 4b 46 7f ff 0c 10 2e t=28000
